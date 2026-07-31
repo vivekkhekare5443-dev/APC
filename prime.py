@@ -1,15 +1,21 @@
-n = int(input("Enter number: "))
-i = 2
-prime = True
-if n <= 1:
-    prime = False
+import math
+
+n = int(input("Enter a number: "))
+root = int(math.sqrt(n))
+
+if root * root != n:
+    print("Square root is not an integer.")
 else:
-    while i < n:
-        if n % i == 0:
-            prime = False
-            break
-        i += 1
-if prime:
-    print("Prime Number")
-else:
-    print("Not a Prime Number")
+    prime = True
+    if root < 2:
+        prime = False
+    else:
+        for i in range(2, root):
+            if root % i == 0:
+                prime = False
+                break
+
+    if prime:
+        print(root, "is Prime")
+    else:
+        print(root, "is Not Prime")
